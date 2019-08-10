@@ -41,6 +41,7 @@ public class Enemy {
 
     public void attack() {
         System.out.println(this.name + "の攻撃！：" + this.power + "ダメージを与えた！");
+        System.out.println("---------------------------");
     }
 
     public static void enemyCount() {
