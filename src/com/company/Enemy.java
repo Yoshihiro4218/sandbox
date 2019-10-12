@@ -1,7 +1,7 @@
 package com.company;
 
 public class Enemy {
-    static int enemyCount = 0;
+    private static int enemyCount = 0;
 
     String name;
     int hp;
@@ -41,11 +41,10 @@ public class Enemy {
 
     public void attack() {
         System.out.println(this.name + "の攻撃！：" + this.power + "ダメージを与えた！");
+        System.out.println("---------------------------");
     }
 
     public static void enemyCount() {
         System.out.println("敵は" + enemyCount + "体いるぞ！！");
     }
-
-
 }
