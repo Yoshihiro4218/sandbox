@@ -1,6 +1,6 @@
 package com.company;
 
-public class FizzBuzz {
+public final class FizzBuzz {
 
     public static void execute(int iteration) {
         if (checkIterationIsNaturalNumber(iteration)) {
