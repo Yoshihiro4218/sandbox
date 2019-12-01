@@ -38,5 +38,15 @@ public class Main {
         FizzBuzz.execute(0);
         FizzBuzz.execute(30);
         FizzBuzz.execute(-10);
+
+        System.out.println("-------------------------------------");
+
+        Account account1 = new Account(1234567, "福岡太郎",
+                                       25, 1000000);
+        account1.recommendSuggestionContents();
+
+        Account account2 = new Account(2345678, "親和花子",
+                                       35, 800000);
+        account2.recommendSuggestionContents();
     }
 }
