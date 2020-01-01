@@ -50,6 +50,8 @@ public class Main {
         account2.recommendSuggestionContents();
 
         System.out.println("-------------------------------------");
+        System.out.println(Recursive.factorial(0));
         System.out.println(Recursive.factorial(4));
+        System.out.println(Recursive.factorial(15));
     }
 }
