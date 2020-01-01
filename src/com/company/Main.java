@@ -48,5 +48,8 @@ public class Main {
         Account account2 = new Account(2345678, "親和花子",
                                        35, 800000);
         account2.recommendSuggestionContents();
+
+        System.out.println("-------------------------------------");
+        System.out.println(Recursive.factorial(4));
     }
 }
