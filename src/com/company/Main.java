@@ -53,5 +53,14 @@ public class Main {
         System.out.println(Recursive.factorial(0));
         System.out.println(Recursive.factorial(4));
         System.out.println(Recursive.factorial(15));
+        System.out.println("-------------------------------------");
+
+        JavaStudy.forBreakPractice();
+        System.out.println("-------------------------------------");
+
+        JavaStudy.switchPractice("福岡銀行");
+        System.out.println("-------------------------------------");
+        JavaStudy.switchPractice("西日本シティ銀行");
+        System.out.println("-------------------------------------");
     }
 }
