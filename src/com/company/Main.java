@@ -60,7 +60,14 @@ public class Main {
 
         JavaStudy.switchPractice("福岡銀行");
         System.out.println("-------------------------------------");
-        JavaStudy.switchPractice("西日本シティ銀行");
+        JavaStudy.switchPractice("MUFG");
         System.out.println("-------------------------------------");
+//        JavaStudy.switchPractice("西日本シティ銀行");
+//        System.out.println("-------------------------------------");
+        JavaStudy.doWhilePractice(10);
+        System.out.println("-------------------------------------");
+        JavaStudy.doWhilePractice(0);
+        System.out.println("-------------------------------------");
+
     }
 }

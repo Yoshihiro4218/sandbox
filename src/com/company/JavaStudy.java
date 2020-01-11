@@ -24,9 +24,25 @@ public class JavaStudy {
             case "親和銀行":
                 System.out.println("わたしが親和銀行です！");
                 break;
+            case "西日本シティ銀行":
+                throw new FukuokaBankException("NCは他行やんけ！");
             default:
                 System.out.println("(どれでもないか・・・)");
                 System.out.println("わたしたちがふくおかフィナンシャルグループです！");
+        }
+    }
+
+    public static void doWhilePractice(int max) {
+        int i = 1;
+        do {
+            System.out.println(i + "回目〜！");
+            i ++;
+        } while (i < max);
+    }
+
+    public static class FukuokaBankException extends RuntimeException {
+        public FukuokaBankException(String message) {
+            super(message);
         }
     }
 }
