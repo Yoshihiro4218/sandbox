@@ -126,5 +126,12 @@ public class JavaStudy {
                 filter(new ArrayList<>(Arrays.asList(args)), value -> value.length() > 4);
         System.out.println("前: " + Arrays.asList(args));
         System.out.println("5文字以上: " + list);
+        methodReference(list);
+    }
+
+    private static void methodReference(List<String> list) {
+        System.out.println("-------------------------------------");
+        System.out.println("[メソッド参照の練習]");
+        list.forEach(System.out::println);
     }
 }

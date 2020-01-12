@@ -78,6 +78,7 @@ public class Main {
         JavaStudy.stringFilter("java", "public", "static", "void",
                                "main", "testMethod", "ruby_on_rails",
                                "spring_boot");
+        System.out.println("-------------------------------------");
 
     }
 }
