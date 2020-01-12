@@ -1,5 +1,6 @@
 package com.company;
 
+@Beta(from = "1.0.0")
 public class JavaStudy {
 
     public static void forBreakPractice() {
@@ -61,6 +62,7 @@ public class JavaStudy {
             throw new FukuokaBankException("connectionに何かあったﾝｺﾞww");
         }
         finally {
+            // Apache CommonsのIOUtils クラスにあるcloseQuietlyを使えばキレイに。
             try {
                 sample.close();
             }
