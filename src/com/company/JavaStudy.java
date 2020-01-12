@@ -36,8 +36,54 @@ public class JavaStudy {
         int i = 1;
         do {
             System.out.println(i + "回目〜！");
-            i ++;
+            i++;
         } while (i < max);
+    }
+
+    public static void tryWithResourcePractice() {
+        try (ClosableSample sample = new ClosableSample()) {
+            System.out.println("リソースを使った処理を行っています....");
+            sample.printWei();
+        }
+        catch (Exception e) {
+            throw new FukuokaBankException("connectionに何かあったﾝｺﾞww");
+        }
+    }
+
+    // Java6以前は try-finallyで！
+    public static void tryFinallyPractice() {
+        ClosableSample sample = new ClosableSample();
+        try {
+            System.out.println("リソースを使った処理を行っています....");
+            sample.printWei();
+        }
+        catch (Exception e) {
+            throw new FukuokaBankException("connectionに何かあったﾝｺﾞww");
+        }
+        finally {
+            try {
+                sample.close();
+            }
+            catch (Exception e) {
+                throw new FukuokaBankException("connectionに何かあったﾝｺﾞww");
+            }
+        }
+    }
+
+    public static class ClosableSample implements AutoCloseable {
+        public ClosableSample() {
+            System.out.println("ClosableなClass. connection開始するお.");
+//            throw new RuntimeException();
+        }
+
+        public void printWei() {
+            System.out.println("うぇ〜い！ｗｗｗ");
+        }
+
+        @Override
+        public void close() throws Exception {
+            System.out.println("closeしま〜す(閉店ｶﾞﾗｶﾞﾗwww)");
+        }
     }
 
     public static class FukuokaBankException extends RuntimeException {

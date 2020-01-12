@@ -69,5 +69,11 @@ public class Main {
         JavaStudy.doWhilePractice(0);
         System.out.println("-------------------------------------");
 
+        JavaStudy.tryWithResourcePractice();
+        System.out.println("-------------------------------------");
+
+        JavaStudy.tryFinallyPractice();
+        System.out.println("-------------------------------------");
+
     }
 }
