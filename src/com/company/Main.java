@@ -79,6 +79,8 @@ public class Main {
                                "main", "testMethod", "ruby_on_rails",
                                "spring_boot");
         System.out.println("-------------------------------------");
-
+        System.out.println(JavaStudy.bofMatched("福岡銀行"));
+        System.out.println(JavaStudy.bofMatched("親和銀行"));
+        System.out.println("-------------------------------------");
     }
 }

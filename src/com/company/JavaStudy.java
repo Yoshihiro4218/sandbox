@@ -3,6 +3,8 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Beta(from = "1.0.0")
 public class JavaStudy {
@@ -133,5 +135,11 @@ public class JavaStudy {
         System.out.println("-------------------------------------");
         System.out.println("[メソッド参照の練習]");
         list.forEach(System.out::println);
+    }
+
+    public static boolean bofMatched(String bankName) {
+        Pattern pattern = Pattern.compile("福岡銀行");
+        Matcher matcher = pattern.matcher(bankName);
+        return matcher.matches();
     }
 }
