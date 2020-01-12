@@ -75,5 +75,9 @@ public class Main {
         JavaStudy.tryFinallyPractice();
         System.out.println("-------------------------------------");
 
+        JavaStudy.stringFilter("java", "public", "static", "void",
+                               "main", "testMethod", "ruby_on_rails",
+                               "spring_boot");
+
     }
 }

@@ -1,5 +1,9 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 @Beta(from = "1.0.0")
 public class JavaStudy {
 
@@ -92,5 +96,35 @@ public class JavaStudy {
         public FukuokaBankException(String message) {
             super(message);
         }
+    }
+
+    //  Lambda
+    @FunctionalInterface
+    private static interface Predicate {
+        public boolean test(String test);
+    }
+
+    private static List<String> filter(List<String> list,
+                                       Predicate predicate) {
+        List<String> ret = new ArrayList<>();
+        for (String s : list) {
+            if (predicate.test(s)) {
+                ret.add(s);
+            }
+        }
+        return ret;
+    }
+
+    public static void stringFilter(String... args) {
+//        Lambda使う前はこんな感じ。。
+//        filter(new ArrayList<>(Arrays.asList(args)), new JavaStudy.Predicate() {
+//            @Override
+//            public boolean test(String value) {
+//                return value.length() > 4;
+//            }
+        List<String> list =
+                filter(new ArrayList<>(Arrays.asList(args)), value -> value.length() > 4);
+        System.out.println("前: " + Arrays.asList(args));
+        System.out.println("5文字以上: " + list);
     }
 }
