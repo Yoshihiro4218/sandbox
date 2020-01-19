@@ -158,5 +158,18 @@ public class JavaStudy {
         System.out.println(Arrays.toString("福岡銀行,熊本銀行,親和銀行,十八銀行, ".split(",", -1)));
         System.out.println("FukuokaFinancialGroup".substring(7));
         System.out.println("FukuokaFinancialGroup".substring(7, 16));
+        System.out.println(Arrays.deepToString(new String[][]{
+                {"A", "B", "C"},
+                {"D", "E", "F"},
+                {"G", "H", "I"}
+        }));
+
+        String[] strArray = new String[5];
+        Arrays.fill(strArray, "hello");
+        System.out.println(Arrays.toString(strArray));
+        Arrays.fill(strArray, 1, 3, "こんにちは〜");
+        System.out.println(Arrays.toString(strArray));
+        String[] strArray2 = Arrays.copyOf(strArray, strArray.length);
+        System.out.println(Arrays.toString(strArray2));
     }
 }
