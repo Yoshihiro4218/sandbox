@@ -82,5 +82,7 @@ public class Main {
         System.out.println(JavaStudy.bofMatched("福岡銀行"));
         System.out.println(JavaStudy.bofMatched("親和銀行"));
         System.out.println("-------------------------------------");
+        JavaStudy.stringIndexOfAndStartsWithEtc();
+        System.out.println("-------------------------------------");
     }
 }

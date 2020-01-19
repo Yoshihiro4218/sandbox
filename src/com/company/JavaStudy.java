@@ -142,4 +142,21 @@ public class JavaStudy {
         Matcher matcher = pattern.matcher(bankName);
         return matcher.matches();
     }
+
+    public static void stringIndexOfAndStartsWithEtc() {
+        System.out.println("FukuokaFinancialGroup".contains("Financial"));
+        System.out.println("FukuokaFinancialGroup".indexOf("F"));
+        System.out.println("FukuokaFinancialGroup".lastIndexOf("F"));
+        System.out.println(Pattern.matches("[0-9]{4}", "8354"));
+        System.out.println("FukuokaBank".startsWith("Fuk"));
+        System.out.println("FukuokaBank".endsWith("Bank"));
+        System.out.println("fukuokafinancialGroup".replace("f", "F"));
+//        replaceAllでは引数に指定した文字を正規表現と見なして置き換える。
+        System.out.println("FukuokaFinancialGroup".replaceAll("[A-Z]", "@"));
+        System.out.println("FukuokaFinancialGroup".replaceFirst("[A-Z]", "@"));
+        System.out.println(Arrays.toString("福岡銀行 熊本銀行 親和銀行 十八銀行".split("\\s", 4)));
+        System.out.println(Arrays.toString("福岡銀行,熊本銀行,親和銀行,十八銀行, ".split(",", -1)));
+        System.out.println("FukuokaFinancialGroup".substring(7));
+        System.out.println("FukuokaFinancialGroup".substring(7, 16));
+    }
 }
