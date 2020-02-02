@@ -171,5 +171,23 @@ public class JavaStudy {
         System.out.println(Arrays.toString(strArray));
         String[] strArray2 = Arrays.copyOf(strArray, strArray.length);
         System.out.println(Arrays.toString(strArray2));
+
+        String[] originalArray = {"java", "scala", "ruby", "c", "kotlin"};
+        String[] originalArray2 = Arrays.copyOf(originalArray, originalArray.length);
+        System.out.println(Arrays.toString(originalArray));
+        Arrays.sort(originalArray2);
+        System.out.println(Arrays.toString(originalArray));
+        System.out.println(Arrays.toString(originalArray2));
+
+//      #binarySearchは昇順にソート済じゃないと正しい値を返さない。
+//      Listにする方法もあるが、#binarySearchのが速く、要素数が増えると差が顕著。
+        int searchIndex = Arrays.binarySearch(originalArray2, "ruby");
+        System.out.println(searchIndex > 0 ? searchIndex + 1 + "番目にあります！" : "ないです（直球）");
+        int searchIndex2 = Arrays.binarySearch(originalArray2, "ffg");
+        System.out.println(searchIndex2 > 0 ? searchIndex2 + 1 + "番目にあります！" : "ないです（直球）");
+        System.out.println(Arrays.asList(originalArray).contains("java"));
+
+        System.out.println(Arrays.hashCode(new String[]{"Fukuoka", "Kumamoto", "Nagasaki"}));
+        System.out.println(Arrays.deepHashCode(new String[][]{{"Fukuoka", "Kumamoto", "Nagasaki"}, {"Okinawa", "Oita", "Kagoshima"}}));
     }
 }
