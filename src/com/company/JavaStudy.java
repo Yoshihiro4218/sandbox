@@ -1,10 +1,7 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.*;
+import java.util.regex.*;
 
 @Beta(from = "1.0.0")
 public class JavaStudy {
@@ -189,5 +186,32 @@ public class JavaStudy {
 
         System.out.println(Arrays.hashCode(new String[]{"Fukuoka", "Kumamoto", "Nagasaki"}));
         System.out.println(Arrays.deepHashCode(new String[][]{{"Fukuoka", "Kumamoto", "Nagasaki"}, {"Okinawa", "Oita", "Kagoshima"}}));
+
+        Collection<String> collection = Arrays.asList("Java", "Python", "JavaScript");
+        Iterator<String> iterator = collection.iterator();
+        System.out.println(iterator.hasNext());
+        System.out.println(iterator.next());
+        System.out.println(iterator.next());
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            System.out.println(element);
+        }
+        System.out.println(iterator.hasNext());
+
+        System.out.println("------------------------------------");
+        Collection<Integer> collection2 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        Iterator<Integer> iterator2 = collection2.iterator();
+        while (iterator2.hasNext()) {
+            if (iterator2.next() % 2 != 0) {
+                iterator2.remove();
+            }
+        }
+        System.out.println(collection2);
+
+        System.out.println("------------------------------------");
+        Collection<String> collection3 = new ArrayList<>(Arrays.asList("ffg", "bof", "ffg", "kmb", "ffg", "swb"));
+        collection3.removeIf("ffg"::equals);
+        System.out.println(collection3);
+        System.out.println("------------------------------------");
     }
 }
