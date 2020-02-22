@@ -100,14 +100,14 @@ public class JavaStudy {
     //  Lambda
     @FunctionalInterface
     private static interface Predicate {
-        public boolean test(String test);
+        public boolean predicateTest(String test);
     }
 
     private static List<String> filter(List<String> list,
                                        Predicate predicate) {
         List<String> ret = new ArrayList<>();
         for (String s : list) {
-            if (predicate.test(s)) {
+            if (predicate.predicateTest(s)) {
                 ret.add(s);
             }
         }
@@ -213,5 +213,22 @@ public class JavaStudy {
         collection3.removeIf("ffg"::equals);
         System.out.println(collection3);
         System.out.println("------------------------------------");
+        Collection<Integer> collection4 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        collection4.removeIf(new java.util.function.Predicate<Integer>() {
+            @Override
+            public boolean test(Integer integer) {
+                return integer % 2 == 0;
+            }
+        });
+        System.out.println(collection4);
+        System.out.println("------------------------------------");
+        Collection<Integer> collection5 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+        Iterator<Integer> iterator5 = collection5.iterator();
+        while (iterator5.hasNext()) {
+            if(iterator5.next() == 5) {
+                break;
+            }
+        }
+        iterator5.forEachRemaining(System.out::println);
     }
 }
