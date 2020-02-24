@@ -81,5 +81,7 @@ public class Main {
         System.out.println("-------------------------------------");
         JavaStudy.stringIndexOfAndStartsWithEtc();
         System.out.println("-------------------------------------");
+        JavaStudy.listEtc();
+        System.out.println("-------------------------------------");
     }
 }

@@ -231,4 +231,56 @@ public class JavaStudy {
         }
         iterator5.forEachRemaining(System.out::println);
     }
+
+    public static void listEtc() {
+        List<String> list = new ArrayList<>();
+        list.add("Java");
+        list.add(0, "Hello");
+        list.addAll(Arrays.asList("Hello", "Ruby", "Hello", "World!!", "kado", "ffg"));
+        System.out.println(list);
+        System.out.println("------------------------------------");
+        for (String element : list) {
+            System.out.println(element);
+        }
+        System.out.println("------------------------------------");
+        list.forEach(System.out::println);
+        System.out.println(list);
+        list.remove(0);
+        System.out.println(list);
+        list.remove("Hello");
+        System.out.println(list);
+        list.removeIf(x -> x.length() < 4);
+        System.out.println(list);
+        list.removeAll(Arrays.asList("Ruby", "World!!"));
+        System.out.println(list);
+        list.set(2, "BOF");
+        System.out.println(list);
+//        listがnullの可能性があるときはApache Commons CollectionsにあるListUtils#isEqualListを使わないとNPEになる可能性が。。
+        System.out.println(list.equals(Arrays.asList("Java", "Hello", "BOF")));
+//        Integer.MAX_VALUEより大きい場合はInteger.MAX_VALUEが返る!!!
+        System.out.println(list.size());
+        System.out.println(list.isEmpty());
+        Collections.sort(list);
+        System.out.println(list);
+        Collections.reverse(list);
+        System.out.println(list);
+        System.out.println(list.contains("kado"));
+        System.out.println(list.containsAll(Arrays.asList("Java", "Hello", "BOF")));
+        list.addAll(1, Arrays.asList("Ruby", "on", "Rails", "Python", "C#"));
+        System.out.println(list);
+        List<String> list2 = list.subList(1, 3);
+        System.out.println(list2);
+        List<String> list3 = list.subList(1, 5);
+        System.out.println(list3);
+        list2.add("mac");
+        System.out.println(list);
+        System.out.println(list2);
+//        java.util.ConcurrentModificationException が発生する。
+//        System.out.println(list3);
+        List<String> list4 = new ArrayList<>(list);
+        System.out.println(list4);
+        List<String> list5 = new ArrayList<String>(){{add("a"); add("b");}};
+        System.out.println(list5);
+
+    }
 }
