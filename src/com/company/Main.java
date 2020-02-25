@@ -83,5 +83,7 @@ public class Main {
         System.out.println("-------------------------------------");
         JavaStudy.listEtc();
         System.out.println("-------------------------------------");
+        JavaStudy.mapEtc();
+        System.out.println("-------------------------------------");
     }
 }

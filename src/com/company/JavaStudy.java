@@ -281,6 +281,50 @@ public class JavaStudy {
         System.out.println(list4);
         List<String> list5 = new ArrayList<String>(){{add("a"); add("b");}};
         System.out.println(list5);
+        Collections.shuffle(list4);
+        System.out.println(list4);
+    }
 
+    public static void mapEtc() {
+        Map<String, String> map = new HashMap<>();
+        map.put("Oracle", "Java");
+        System.out.println(map);
+        Map<String, String> addingMap = new HashMap<>();
+        addingMap.put("Google", "Go");
+        addingMap.put("Ericsson", "Erlang");
+        addingMap.put("Fukuoka", "BOF");
+        addingMap.put("Nagasaki", "SWB");
+        addingMap.put("Kumamoto", "KMB");
+//        まとめて追加
+        map.putAll(addingMap);
+        System.out.println(map);
+//        指定したキーがない場合のみ要素を追加
+        map.putIfAbsent("Oracle", "Javaaaa");
+        map.putIfAbsent("Matz", "Ruby");
+        System.out.println(map);
+        System.out.println(map.remove("Kumamoto"));
+        System.out.println(map.remove("Kadono"));
+        System.out.println(map.remove("Nagasaki", "SWB"));
+        System.out.println(map.remove("Fukuoka", "NCB"));
+        System.out.println(map);
+        System.out.println("------------------------------------");
+        System.out.println(map.replace("Oracle", "MySQL"));
+        System.out.println(map);
+        System.out.println(map.replace("Google", "Go", "YouTube"));
+        System.out.println(map);
+//        指定されたキーの値を元に新しい値を生成する関数を指定
+        System.out.println(map.compute("Fukuoka", (k, v) -> v != null ? k + "Bank" : "BOFFFFF"));
+        System.out.println(map);
+//        指定したキーが存在する場合のみ実行
+        System.out.println(map.computeIfPresent("Fukuoka", (k, v) -> v + "(BOF)"));
+        System.out.println(map);
+//        指定したキーが存在しない場合のみ追加
+        System.out.println(map.computeIfAbsent("Nagasaki", k -> k + "Bank"));
+        System.out.println(map);
+//        存在していた場合はvalueを追加、存在していない場合はラムダ式の計算結果で値を更新(oldとnewを渡す)
+        System.out.println(map.merge("Kumamoto", "HigoBank", (oldVal, newVal) -> oldVal + ", " + newVal));
+        System.out.println(map.merge("Kumamoto", "KumamotoBank", (oldVal, newVal) -> oldVal + ", " + newVal));
+        System.out.println(map.merge("Miyazaki", "MiyazakiBank", (oldVal, newVal) -> oldVal + ", " + newVal));
+        System.out.println(map);
     }
 }
