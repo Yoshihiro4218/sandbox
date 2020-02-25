@@ -326,5 +326,18 @@ public class JavaStudy {
         System.out.println(map.merge("Kumamoto", "KumamotoBank", (oldVal, newVal) -> oldVal + ", " + newVal));
         System.out.println(map.merge("Miyazaki", "MiyazakiBank", (oldVal, newVal) -> oldVal + ", " + newVal));
         System.out.println(map);
+        System.out.println(map.containsKey("Fukuoka"));
+        System.out.println(map.containsValue("YouTube"));
+        System.out.println(map.get("Nagasaki"));
+        System.out.println(map.getOrDefault("kadono", "FukuokaFinancialGroup"));
+        System.out.println("------------------------------------");
+//        Set<Map.Entry<K, V>>オブジェクトはマップの保存されているキーと値のペアの1つを表すオブジェクト
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + ": " + entry.getValue());
+        }
+        System.out.println("------------------------------------");
+        map.forEach((k, v) -> System.out.println(k + ": " + v));
+        System.out.println("------------------------------------");
+
     }
 }
