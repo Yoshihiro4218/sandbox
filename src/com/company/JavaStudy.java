@@ -2,9 +2,12 @@ package com.company;
 
 import java.util.*;
 import java.util.regex.*;
+import java.util.stream.*;
 
 @Beta(from = "1.0.0")
-public class JavaStudy {
+public final class JavaStudy {
+
+    private JavaStudy() {}
 
     public static void forBreakPractice() {
         for (int i = 0; i < 10; i++) {
@@ -338,6 +341,47 @@ public class JavaStudy {
         System.out.println("------------------------------------");
         map.forEach((k, v) -> System.out.println(k + ": " + v));
         System.out.println("------------------------------------");
+        Set<String> keySet = map.keySet();
+        keySet.forEach(System.out::println);
+        System.out.println(keySet.size());
+        map.remove("Matz");
+        System.out.println(keySet.size());
+        System.out.println("------------------------------------");
+        Collection<String> values = map.values();
+        values.forEach(System.out::println);
+        System.out.println(map.size());
+        System.out.println(map.isEmpty());
+    }
 
+    public static void streamPractice() {
+        List<String> strings = Arrays.asList("Java", "Ruby", "Python", "PHP", "C");
+        Stream<String> stream = strings.stream();
+        String[] strings2 = {"Java", "Ruby", "Python", "PHP", "C"};
+        Stream<String> stream2 = Arrays.stream(strings2);
+        Stream<String> stream3 = Stream.of("Java", "Ruby", "Python", "PHP", "C");
+        IntStream intStream = IntStream.range(1, 5);
+        intStream.forEach(System.out::println);
+        System.out.println("------------------------------------");
+        IntStream.rangeClosed(1, 5).forEach(System.out::println);
+        System.out.println(Stream.empty().collect(Collectors.toList()));
+        System.out.println(Stream.empty().count());
+        System.out.println("------------------------------------");
+        System.out.println(Stream.concat(stream, stream2).collect(Collectors.toList()));
+        System.out.println("------------------------------------");
+        Stream.Builder<String> builder = Stream.builder();
+        for (int i = 0; i < 10; i++) {
+            builder = builder.add("test" + i);
+        }
+        Stream<String> stringStream = builder.build();
+        stringStream.filter(x -> Integer.parseInt(x.substring(4)) % 2 == 0)
+                    .forEach(System.out::println);
+        System.out.println("------------------------------------");
+        Stream<Double> stream1 = Stream.generate(Math::random);
+        stream1.limit(10).forEach(System.out::println);
+        System.out.println(stream1.isParallel());
+        stream1 = stream1.parallel();
+        System.out.println(stream1.isParallel());
+        stream1 = stream1.sequential();
+        System.out.println(stream1.isParallel());
     }
 }

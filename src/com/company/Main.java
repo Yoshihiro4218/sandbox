@@ -85,5 +85,7 @@ public class Main {
         System.out.println("-------------------------------------");
         JavaStudy.mapEtc();
         System.out.println("-------------------------------------");
+        JavaStudy.streamPractice();
+        System.out.println("-------------------------------------");
     }
 }
