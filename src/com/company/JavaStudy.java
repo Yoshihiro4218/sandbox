@@ -7,7 +7,8 @@ import java.util.stream.*;
 @Beta(from = "1.0.0")
 public final class JavaStudy {
 
-    private JavaStudy() {}
+    private JavaStudy() {
+    }
 
     public static void forBreakPractice() {
         for (int i = 0; i < 10; i++) {
@@ -228,7 +229,7 @@ public final class JavaStudy {
         Collection<Integer> collection5 = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
         Iterator<Integer> iterator5 = collection5.iterator();
         while (iterator5.hasNext()) {
-            if(iterator5.next() == 5) {
+            if (iterator5.next() == 5) {
                 break;
             }
         }
@@ -282,7 +283,10 @@ public final class JavaStudy {
 //        System.out.println(list3);
         List<String> list4 = new ArrayList<>(list);
         System.out.println(list4);
-        List<String> list5 = new ArrayList<String>(){{add("a"); add("b");}};
+        List<String> list5 = new ArrayList<String>() {{
+            add("a");
+            add("b");
+        }};
         System.out.println(list5);
         Collections.shuffle(list4);
         System.out.println(list4);
@@ -383,5 +387,42 @@ public final class JavaStudy {
         System.out.println(stream1.isParallel());
         stream1 = stream1.sequential();
         System.out.println(stream1.isParallel());
+        System.out.println("------------------------------------");
+        stream3.filter(s -> s.length() > 4)
+               .forEach(System.out::println);
+
+        Stream<Integer> integerStream = Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                              .map(String::length);
+        integerStream.forEach(System.out::println);
+        System.out.println("------------------------------------");
+        Stream.of("Java", "Ruby", "Python", "PHP", "C")
+              .sorted()
+              .forEach(System.out::println);
+        System.out.println("------------------------------------");
+        Stream.of("Java", "Ruby", "Python", "PHP", "C")
+              .sorted(Comparator.reverseOrder())
+              .forEach(System.out::println);
+        System.out.println("------------------------------------");
+        Stream.of("Java", "Ruby", "Python", "PHP", "C", "Java", "ruby")
+              .distinct()
+              .forEach(System.out::println);
+        System.out.println("------------------------------------");
+        System.out.println(IntStream.rangeClosed(1, 10).sum());
+        System.out.println("------------------------------------");
+        System.out.println(IntStream.rangeClosed(1, 10).average());
+        System.out.println("------------------------------------");
+//        collectメソッドとCollectors#partitioningByを使うことで、Streamに含まれる要素を
+//        ある条件を満たすものと満たさないものの2つのリストに分割することが出来る。
+        Map<Boolean, List<String>> partitioned = Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                                       .collect(Collectors.partitioningBy(x -> x.length() > 4));
+        System.out.println("条件満たす:" + partitioned.get(true));
+        System.out.println("条件満たさない:" + partitioned.get(false));
+        System.out.println("------------------------------------");
+//        collectメソッドとCollectors#groupingByを使うことで、Streamに含まれる要素を分類することが出来る。
+        Map<Integer, List<String>> group = Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                                 .collect(Collectors.groupingBy(String::length));
+        for (Map.Entry<Integer, List<String>> entry : group.entrySet()) {
+            System.out.println(entry.getKey() + "文字の要素：" + entry.getValue());
+        }
     }
 }
