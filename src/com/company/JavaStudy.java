@@ -424,5 +424,32 @@ public final class JavaStudy {
         for (Map.Entry<Integer, List<String>> entry : group.entrySet()) {
             System.out.println(entry.getKey() + "文字の要素：" + entry.getValue());
         }
+        System.out.println("------------------------------------");
+        System.out.println(Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                 .allMatch(x -> Character.isUpperCase(x.charAt(0))));
+        System.out.println(Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                 .anyMatch(x -> x.length() > 6));
+        System.out.println(Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                 .noneMatch(String::isEmpty));
+        System.out.println("------------------------------------");
+        Stream.of("Java", "Ruby", "Python", "PHP", "C")
+              .min(Comparator.naturalOrder())
+              .ifPresent(System.out::println);
+        Stream.of("Java", "Ruby", "Python", "PHP", "C")
+              .max(Comparator.naturalOrder())
+              .ifPresent(System.out::println);
+//        Streamオブジェクトに含まれるすべての要素に対して、順番に2つずつ値を取り出し、
+//        それらの値をもとに計算していく処理を畳み込みという。
+        System.out.println(Stream.of("Java", "Ruby", "Python", "PHP", "C")
+                                 .reduce("", (s1, s2) -> s1 + s2));
+        Stream.of(1, 2, 3, 4)
+              .reduce((accum, value) -> accum * value)
+              .ifPresent(System.out::println);
+        System.out.println(Stream.of(1, 2, 3, 4)
+                                 .mapToInt(x -> x)
+                                 .sum());
+        System.out.println(IntStream.of(1, 2, 3)
+                                    .sum());
+
     }
 }
