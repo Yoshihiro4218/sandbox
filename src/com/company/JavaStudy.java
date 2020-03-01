@@ -9,6 +9,8 @@ import java.util.*;
 import java.util.regex.*;
 import java.util.stream.*;
 
+import static java.nio.file.StandardOpenOption.APPEND;
+
 @Beta(from = "1.0.0")
 public final class JavaStudy {
 
@@ -532,6 +534,62 @@ public final class JavaStudy {
             Files.lines(Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/BankList.txt"),
                         StandardCharsets.UTF_8)
                  .forEach(System.out::println);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+//        FileOutputStream: ファイルの内容をバイナリとして書き込む
+//        OutputStreamReader: FileOutputStream文字列をバイナリとしてわたす。
+//        BufferedWriter: 文字列の内容をまとめて書き込む
+        try (BufferedWriter writer
+                     = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream("/Users/yoshihiro/project/sandbox/src/com/company/static/Write.txt"),
+                StandardCharsets.UTF_8))) {
+            writer.write(("Hello!"));
+            writer.newLine();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+//         第2引数にtrueを渡して追記書き込みにする
+        try (BufferedWriter writer
+                     = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream("/Users/yoshihiro/project/sandbox/src/com/company/static/Write.txt", true),
+                StandardCharsets.UTF_8))) {
+            writer.write(("Hey!"));
+            writer.newLine();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+//        Java7以降はこれでも可。簡潔だが、書き込む内容を一度メモリ上に保持するため、大量のテキストを記述する場合には向かない。
+/**       [StandardOpenOption]
+ *         READ: 読み込みを行う
+ *         WRITE: 書き込みを行う
+ *         APPEND: 追記を行う
+ *         TRUNCATE_EXISTING: すでにファイルが存在する場合はファイルを空にする
+ *         CREATE: ファイルが存在しない場合は新規作成する
+ *         CREATE_NEW: ファイルを新規作成する。すでに存在する場合は失敗する
+ *         DELETE_ON_CLOSE: ファイルを閉じるときに削除する
+ *         SPARSE: いくつかのファイルシステムでは、中身がまばらなファイルを効率的に保存することが出来る
+ *         SYNC: ファイルへの書き込みやファイル自体の情報を常に同期してストレージに書き込む
+ *         DSYNC: ファイルへの書き込みを常に同期してストレージに書き込む
+ */
+        try (BufferedWriter writer2
+                     = Files.newBufferedWriter(
+                Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/Write2.txt"),
+                StandardCharsets.UTF_8, APPEND
+                                              )) {
+            writer2.write("Welcome to underground.");
+            writer2.newLine();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            List<String> lines = Arrays.asList("FFG", "NFH", "KFG", "YMFG");
+            Files.write(Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/Write3.txt"),
+                        lines, StandardCharsets.UTF_8, APPEND);
         }
         catch (IOException e) {
             e.printStackTrace();

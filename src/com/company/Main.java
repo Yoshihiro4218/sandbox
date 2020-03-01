@@ -91,5 +91,8 @@ public class Main {
         System.out.println("-------------------------------------");
         JavaStudy.file();
         System.out.println("-------------------------------------");
+        System.out.println(new RandomGenerator().generateStringAndNumber(10));
+        System.out.println(new RandomGenerator().generateNumber(15));
+        System.out.println("-------------------------------------");
     }
 }
