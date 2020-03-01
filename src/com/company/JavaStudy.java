@@ -1,5 +1,7 @@
 package com.company;
 
+import java.math.*;
+import java.security.*;
 import java.util.*;
 import java.util.regex.*;
 import java.util.stream.*;
@@ -450,6 +452,45 @@ public final class JavaStudy {
                                  .sum());
         System.out.println(IntStream.of(1, 2, 3)
                                     .sum());
+    }
 
+    public static void math() {
+        System.out.println(Math.E);
+        System.out.println(Math.PI);
+        int num1 = 7;
+        int num2 = -7;
+        System.out.println(Math.abs(num1));
+        System.out.println(Math.abs(num2));
+        System.out.println(Math.abs(Integer.MIN_VALUE));
+        System.out.println(Math.abs(Long.MIN_VALUE));
+        System.out.println(Float.NaN);
+        System.out.println(Float.NEGATIVE_INFINITY);
+        System.out.println(Math.abs(Float.NEGATIVE_INFINITY));
+        try {
+            System.out.println(Math.addExact(Integer.MAX_VALUE, 7));
+        }
+        catch (ArithmeticException e) {
+            System.out.println(e + ": 加算でオーバーフローが発生しました。");
+        }
+        double radian = Math.PI / 3;
+        double radian2 = Math.PI / 4;
+        System.out.println(Math.sin(radian));
+        System.out.println(Math.tan(radian2));
+
+        System.out.println(Math.sqrt(9.0));
+        System.out.println(Math.sqrt(-9.0));
+        System.out.println(Math.cbrt(64.0));
+        System.out.println(Math.floor(Math.PI));
+        System.out.println(Math.ceil(Math.PI));
+        System.out.println(Math.round(4.5));
+        System.out.println(Math.min(5, 6));
+        System.out.println(Math.random());
+        System.out.println(new SecureRandom().nextDouble());
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Short.MAX_VALUE);
+        System.out.println(Double.MIN_VALUE);
+        BigDecimal decimal = new BigDecimal("123.456");
+        System.out.println(decimal.setScale(2, RoundingMode.HALF_UP));
+        System.out.println(decimal.setScale(2, RoundingMode.HALF_DOWN));
     }
 }
