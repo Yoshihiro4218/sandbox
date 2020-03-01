@@ -89,5 +89,7 @@ public class Main {
         System.out.println("-------------------------------------");
         JavaStudy.math();
         System.out.println("-------------------------------------");
+        JavaStudy.file();
+        System.out.println("-------------------------------------");
     }
 }

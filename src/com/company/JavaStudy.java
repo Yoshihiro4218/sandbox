@@ -1,6 +1,9 @@
 package com.company;
 
+import java.io.*;
 import java.math.*;
+import java.nio.charset.*;
+import java.nio.file.*;
 import java.security.*;
 import java.util.*;
 import java.util.regex.*;
@@ -492,5 +495,46 @@ public final class JavaStudy {
         BigDecimal decimal = new BigDecimal("123.456");
         System.out.println(decimal.setScale(2, RoundingMode.HALF_UP));
         System.out.println(decimal.setScale(2, RoundingMode.HALF_DOWN));
+    }
+
+    public static void file() {
+//        BufferdReaderを使って1行ずつ読み込む
+//        FileInputStream: ファイルの内容をバイナリとして読み込む
+//        InputStreamReader: FileInputStreamから受け取ったバイナリの内容を文字列として読み込む
+//        BufferedReader: InputStreamReaderから受け取った文字列の内容をまとめて読み込む
+        try (BufferedReader reader
+                     = new BufferedReader(new InputStreamReader(
+                new FileInputStream("/Users/yoshihiro/project/sandbox/src/com/company/static/BankList.txt"),
+                StandardCharsets.UTF_8))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+//         Files.readAllLinesを使ってすべての行を一気に読み込む(Java7〜)
+        try {
+            List<String> lines
+                    = Files.readAllLines(
+                    Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/BankList.txt")
+                    , StandardCharsets.UTF_8);
+            for (String line : lines) {
+                System.out.println(line);
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+//          Stream APIを使ってファイルから1行ずつ読み込む(Java8)
+        try {
+            Files.lines(Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/BankList.txt"),
+                        StandardCharsets.UTF_8)
+                 .forEach(System.out::println);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
