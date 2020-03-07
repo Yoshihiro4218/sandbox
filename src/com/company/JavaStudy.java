@@ -594,5 +594,36 @@ public final class JavaStudy {
         catch (IOException e) {
             e.printStackTrace();
         }
+//      ファイルにバイナリを書き込む
+        try(BufferedOutputStream out
+                = new BufferedOutputStream(
+                        new FileOutputStream("/Users/yoshihiro/project/sandbox/src/com/company/static/newImg.png"));
+            BufferedInputStream in
+                    = new BufferedInputStream(
+                            new FileInputStream("/Users/yoshihiro/project/sandbox/src/com/company/static/intellij-idea-ue-icon.png")
+            )
+        ) {
+            int size = 0;
+            int total = 0;
+            byte[] buffer = new byte[1024];
+//            バイナリファイルを書き込む
+            while ((size = in.read(buffer)) != -1) {
+                out.write(buffer);
+                total += size;
+            }
+            System.out.println(total + "バイトのファイルをコピーしました。");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+//      Java7以降ではまとめてバイナリを書き込むこともできる
+        try {
+            byte[] contents = Files.readAllBytes(Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/intellij-idea-ue-icon.png"));
+            Files.write(Paths.get("/Users/yoshihiro/project/sandbox/src/com/company/static/newImg.png"),
+                        contents, StandardOpenOption.CREATE);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
