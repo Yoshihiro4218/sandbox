@@ -179,3 +179,105 @@ public class LoginEvent extends ApplicationEvent {
     }
 }
 ```
+
+
+JavaScript 非同期
+### コールバック関数
+```javascript
+function wait(callback, num) {
+    setTimeout(() => {
+        console.log(num);
+        callback();
+    }, 100)
+}
+
+wait(() => {
+    console.log('callback function is called.');
+}, 0)
+```
+
+### Promise関数
+```javascript
+function wait(num) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+                console.log(num);
+                if(num === 2) {
+                    reject(num);
+                } else {
+                    resolve(num);
+                }
+            }, num)
+    })
+}
+
+wait(0).then((num) => {
+    num++;
+    return wait(num);
+}).then((num) => {
+    num++;
+    return wait(num);
+}).catch((num) => {
+    console.log(num, 'error!');
+})
+
+//  すべて実行したらthen実施
+Promise.all([wait(1000), wait(1500), wait(2000)]).then((nums) => {
+    console.log(nums);
+})
+
+//  どれか一つ実行したらthen実施
+Promise.race([wait(1000), wait(1500), wait(2000)]).then((nums) => {
+    console.log(nums);
+})
+```
+
+### Await／Async関数
+```javascript
+async function sample() {
+    const num = await asyncFn();
+    num++;
+    return num;
+}
+
+asyncFn(0).then(num => {
+    num++;
+    return num;
+})
+
+
+function wait(num) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+                console.log(num);
+                if(num === 5) {
+                    reject(num);
+                } else {
+                    resolve(num);
+                }
+            }, 1000)
+    })
+}
+
+async function init() {
+      let num = 0;
+      try {
+        num = await wait(num);
+        num ++;
+        num = await wait(num);
+        num ++;
+        num = await wait(num);
+        num ++;
+        num = await wait(num);
+        num ++;
+        num = await wait(num);
+        num ++;
+        num = await wait(num);
+        num ++;
+      }
+      catch (e) {
+        throw new Error('Error is occurred:' + e);
+      }
+      return num;
+}
+```
