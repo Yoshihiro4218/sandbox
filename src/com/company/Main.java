@@ -1,5 +1,7 @@
 package com.company;
 
+import com.company.template_method_pattern.*;
+
 import java.util.*;
 
 public class Main {
@@ -93,6 +95,14 @@ public class Main {
         System.out.println("-------------------------------------");
         System.out.println(new RandomGenerator().generateStringAndNumber(10));
         System.out.println(new RandomGenerator().generateNumber(15));
+        System.out.println("-------------------------------------");
+        System.out.println("-------------------------------------");
+// テンプレートメソッドパターン
+        BankerEveryday bankerEveryday = new BankerEveryday();
+        bankerEveryday.start();
+        System.out.println("-------------------------------------");
+        StudentEveryday studentEveryday = new StudentEveryday();
+        studentEveryday.start();
         System.out.println("-------------------------------------");
     }
 }
