@@ -1,5 +1,6 @@
 package com.company;
 
+import com.company.strategy_pattern.*;
 import com.company.template_method_pattern.*;
 import com.company.template_method_pattern_functional_interface.*;
 import com.company.template_method_pattern_interface.*;
@@ -120,6 +121,13 @@ public class Main {
         System.out.println("-------------------------------------");
         Everyday3 studentEveryday3 = System.out::println;
         studentEveryday3.start("講義寝るンゴ (つ∀-)ｵﾔｽﾐｰ");
+        System.out.println("-------------------------------------");
+// ストラテジーパターン
+        EverydayContext bankerEverydayContext = new EverydayContext(new BankerEverydayStrategy());
+        bankerEverydayContext.start();
+        System.out.println("-------------------------------------");
+        EverydayContext studentEverydayContext = new EverydayContext(new StudentEverydayStrategy());
+        studentEverydayContext.start();
         System.out.println("-------------------------------------");
     }
 }
