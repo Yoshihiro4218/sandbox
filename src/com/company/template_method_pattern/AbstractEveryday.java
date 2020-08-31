@@ -34,6 +34,6 @@ public abstract class AbstractEveryday {
     }
 
     private void separate() {
-        System.out.println("=============");
+        System.out.println("↓");
     }
 }
