@@ -1,6 +1,8 @@
 package com.company;
 
 import com.company.template_method_pattern.*;
+import com.company.template_method_pattern_functional_interface.*;
+import com.company.template_method_pattern_interface.*;
 
 import java.util.*;
 
@@ -103,6 +105,21 @@ public class Main {
         System.out.println("-------------------------------------");
         StudentEveryday studentEveryday = new StudentEveryday();
         studentEveryday.start();
+        System.out.println("-------------------------------------");
+// テンプレートメソッドパターン_インターフェイス
+        BankerEveryday2 bankerEveryday2 = new BankerEveryday2();
+        bankerEveryday2.start();
+        System.out.println("-------------------------------------");
+        StudentEveryday2 studentEveryday2 = new StudentEveryday2();
+        studentEveryday2.start();
+        System.out.println("-------------------------------------");
+// テンプレートメソッドパターン_インターフェイス_ファンクショナル
+//        Everyday3 everyday3 = daytimeActivity -> System.out.println(daytimeActivity);
+        Everyday3 bankerEveryday3 = System.out::println;
+        bankerEveryday3.start("仕事ツラいンゴ.......");
+        System.out.println("-------------------------------------");
+        Everyday3 studentEveryday3 = System.out::println;
+        studentEveryday3.start("講義寝るンゴ (つ∀-)ｵﾔｽﾐｰ");
         System.out.println("-------------------------------------");
     }
 }
