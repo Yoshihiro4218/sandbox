@@ -125,6 +125,8 @@ public class Main {
         Everyday3 bankerEveryday3 = System.out::println;
         bankerEveryday3.start("仕事ツラいンゴ.......");
         System.out.println("-------------------------------------");
+        bankerStart(System.out::println);
+        System.out.println("-------------------------------------");
         Everyday3 studentEveryday3 = System.out::println;
         studentEveryday3.start("講義寝るンゴ (つ∀-)ｵﾔｽﾐｰ");
         System.out.println("-------------------------------------");
@@ -135,5 +137,9 @@ public class Main {
         EverydayContext studentEverydayContext = new EverydayContext(new StudentEverydayStrategy());
         studentEverydayContext.start();
         System.out.println("-------------------------------------");
+    }
+
+    private static void bankerStart(Everyday3 everyday3) {
+        everyday3.start("仕事ツラいンゴ.......");
     }
 }
