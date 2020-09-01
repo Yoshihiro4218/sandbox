@@ -121,7 +121,7 @@ public class Main {
 //                System.out.println(daytimeActivity);
 //            }
 //        };
-//        Everyday3 everyday3 = daytimeActivity -> System.out.println(daytimeActivity);
+//        Everyday3 bankerEveryday3 = daytimeActivity -> System.out.println(daytimeActivity);
         Everyday3 bankerEveryday3 = System.out::println;
         bankerEveryday3.start("仕事ツラいンゴ.......");
         System.out.println("-------------------------------------");
