@@ -115,6 +115,12 @@ public class Main {
         studentEveryday2.start();
         System.out.println("-------------------------------------");
 // テンプレートメソッドパターン_インターフェイス_ファンクショナル
+//        Everyday3 bankerEveryday3 = new Everyday3() {
+//            @Override
+//            public void daytime(String daytimeActivity) {
+//                System.out.println(daytimeActivity);
+//            }
+//        };
 //        Everyday3 everyday3 = daytimeActivity -> System.out.println(daytimeActivity);
         Everyday3 bankerEveryday3 = System.out::println;
         bankerEveryday3.start("仕事ツラいンゴ.......");
