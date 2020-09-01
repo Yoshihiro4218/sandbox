@@ -8,7 +8,7 @@ public abstract class AbstractEveryday {
      * 4. 寝る
      */
 
-    public void start() {
+    public final void start() {
         startMessage();
         morning();
         separate();
