@@ -18,7 +18,7 @@ public class Main {
             System.out.println("（こちらに" + targetName + "が向かってくるぞ！）");
             System.out.println(word);
         };
-        greeting2.exec("同僚", "ういーっす");
+        greeting2.exec("上司", "おはようございます！");
 
 
         Greeting greeting3 = (targetName, word) -> System.out.println(targetName + word);
