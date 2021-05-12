@@ -10,6 +10,13 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
+        SortPractice sortPractice = new SortPractice();
+        sortPractice.executeBogoSort();
+        sortPractice.executeBubbleSort();
+        System.out.println("-------------------------------------");
+    }
+
+    private static void history() {
         Enemy.enemyCount();
         System.out.println("---------------------------");
         Enemy e1 = new Enemy("D子", 100, 70);
@@ -136,10 +143,6 @@ public class Main {
         System.out.println("-------------------------------------");
         EverydayContext studentEverydayContext = new EverydayContext(new StudentEverydayStrategy());
         studentEverydayContext.start();
-        System.out.println("-------------------------------------");
-
-        SortPractice sortPractice = new SortPractice();
-        sortPractice.printBogoSort();
         System.out.println("-------------------------------------");
     }
 

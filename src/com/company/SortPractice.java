@@ -6,7 +6,7 @@ public class SortPractice {
     private final RandomGenerator randomGenerator = new RandomGenerator();
 
     // Bogo Sort
-    public void printBogoSort() {
+    public void executeBogoSort() {
         System.out.println("======== Bogo Sort START! ========");
         List<Integer> integers = randomGenerator.randomIntegers(100, 5);
         System.out.println(integers);
@@ -29,5 +29,27 @@ public class SortPractice {
     private void shuffleIntegers(List<Integer> integers) {
         Collections.shuffle(integers);
         System.out.println(integers);
+    }
+
+
+    // Bubble Sort
+    public void executeBubbleSort() {
+        System.out.println("======== Bubble Sort START! ========");
+        List<Integer> integers = randomGenerator.randomIntegers(100, 7);
+        System.out.println(integers);
+        int length = integers.size();
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length - 1 - i; j ++) {
+                if (integers.get(j) > integers.get(j + 1)) {
+                    int front = integers.get(j);
+                    int back = integers.get(j + 1);
+                    integers.set(j, back);
+                    integers.set(j + 1, front);
+                    System.out.println(integers);
+                }
+            }
+        }
+        System.out.println(integers);
+        System.out.println("======== Bubble Sort COMPLETE! ========");
     }
 }
