@@ -8,7 +8,7 @@ public class SortPractice {
     // Bogo Sort
     public void printBogoSort() {
         System.out.println("======== Bogo Sort START! ========");
-        List<Integer> integers = randomGenerator.randomIntegers(100, 10);
+        List<Integer> integers = randomGenerator.randomIntegers(100, 5);
         System.out.println(integers);
         int shuffleCount = 0;
         while (!isInOrder(integers)) {
