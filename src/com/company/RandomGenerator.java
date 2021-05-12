@@ -18,7 +18,9 @@ public class RandomGenerator {
     }
 
     public String generateStringAndNumber(int size) {
-        if (size <= 0) size = 1;
+        if (size <= 0) {
+            size = 1;
+        }
         secureRandom = new SecureRandom();
         String target = alphabetUpperCase + alphabetULowerCase + number;
         StringBuilder sb = new StringBuilder();
@@ -32,8 +34,18 @@ public class RandomGenerator {
         return generateNumber(0);
     }
 
+    public List<String> generateNumbers(int count) {
+        List<String> numbers = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            numbers.add(generateNumber());
+        }
+        return numbers;
+    }
+
     public String generateNumber(int digit) {
-        if (digit <= 0) digit = 1;
+        if (digit <= 0) {
+            digit = 1;
+        }
         secureRandom = new SecureRandom();
         String target = number;
         StringBuilder sb = new StringBuilder();
@@ -41,5 +53,18 @@ public class RandomGenerator {
             sb.append(target.charAt(secureRandom.nextInt(target.length())));
         }
         return sb.toString();
+    }
+
+    public int randomInt(int max) {
+        secureRandom = new SecureRandom();
+        return secureRandom.nextInt(max + 1);
+    }
+
+    public List<Integer> randomIntegers(int max, int count) {
+        List<Integer> integers = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            integers.add(randomInt(max));
+        }
+        return integers;
     }
 }

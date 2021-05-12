@@ -137,6 +137,10 @@ public class Main {
         EverydayContext studentEverydayContext = new EverydayContext(new StudentEverydayStrategy());
         studentEverydayContext.start();
         System.out.println("-------------------------------------");
+
+        SortPractice sortPractice = new SortPractice();
+        sortPractice.printBogoSort();
+        System.out.println("-------------------------------------");
     }
 
     private static void bankerStart(Everyday3 everyday3) {
