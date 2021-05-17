@@ -52,4 +52,44 @@ public class SortPractice {
         System.out.println(integers);
         System.out.println("======== Bubble Sort COMPLETE! ========");
     }
+
+    // Cocktail Sort
+    public void executeCocktailSort() {
+        System.out.println("======== Cocktail Sort START! ========");
+        List<Integer> integers = randomGenerator.randomIntegers(100, 7);
+        boolean swapped = true;
+        int start = 0;
+        int end = integers.size() - 1;
+
+        while (swapped) {
+            swapped = false;
+            for (int i = start; i < end; i ++) {
+                if (integers.get(i) > integers.get(i + 1)) {
+                    int front = integers.get(i);
+                    int back = integers.get(i + 1);
+                    integers.set(i, back);
+                    integers.set(i + 1, front);
+                    swapped = true;
+                    System.out.println(integers);
+                }
+            }
+            if (!swapped) break;
+
+            swapped = false;
+            end --;
+            for (int i = end - 1; i > start - 1; i --) {
+                if (integers.get(i) > integers.get(i + 1)) {
+                    int front = integers.get(i);
+                    int back = integers.get(i + 1);
+                    integers.set(i, back);
+                    integers.set(i + 1, front);
+                    swapped = true;
+                    System.out.println(integers);
+                }
+            }
+            start ++;
+        }
+        System.out.println(integers);
+        System.out.println("======== Cocktail Sort COMPLETE! ========");
+    }
 }

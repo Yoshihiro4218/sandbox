@@ -13,6 +13,7 @@ public class Main {
         SortPractice sortPractice = new SortPractice();
         sortPractice.executeBogoSort();
         sortPractice.executeBubbleSort();
+        sortPractice.executeCocktailSort();
         System.out.println("-------------------------------------");
     }
 
