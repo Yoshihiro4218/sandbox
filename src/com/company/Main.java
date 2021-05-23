@@ -14,6 +14,7 @@ public class Main {
         sortPractice.executeBogoSort();
         sortPractice.executeBubbleSort();
         sortPractice.executeCocktailSort();
+        sortPractice.executeCombSort();
         System.out.println("-------------------------------------");
     }
 

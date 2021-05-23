@@ -92,4 +92,29 @@ public class SortPractice {
         System.out.println(integers);
         System.out.println("======== Cocktail Sort COMPLETE! ========");
     }
+
+    // Comb Sort
+    public void executeCombSort() {
+        System.out.println("======== Comb Sort START! ========");
+        List<Integer> integers = randomGenerator.randomIntegers(100, 7);
+        int gap = integers.size();
+        boolean swapped = true;
+
+        while (gap != 1 || swapped) {
+            gap = (int) Math.floor(gap / 1.3);
+            if (gap < 1) gap = 1;
+            swapped = false;
+            for (int i = 0; i < integers.size() - gap; i ++) {
+                if (integers.get(i) > integers.get(i + gap)) {
+                    int front = integers.get(i);
+                    int back = integers.get(i + gap);
+                    integers.set(i, back);
+                    integers.set(i + gap, front);
+                    swapped = true;
+                    System.out.println(integers);
+                }
+            }
+        }
+        System.out.println("======== Comb Sort COMPLETE! ========");
+    }
 }
