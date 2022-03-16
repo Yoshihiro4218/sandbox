@@ -10,12 +10,7 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        SortPractice sortPractice = new SortPractice();
-        sortPractice.executeBogoSort();
-        sortPractice.executeBubbleSort();
-        sortPractice.executeCocktailSort();
-        sortPractice.executeCombSort();
-        System.out.println("-------------------------------------");
+        timer();
     }
 
     private static void history() {
@@ -146,9 +141,36 @@ public class Main {
         EverydayContext studentEverydayContext = new EverydayContext(new StudentEverydayStrategy());
         studentEverydayContext.start();
         System.out.println("-------------------------------------");
+
+
+        // ソート練習
+        SortPractice sortPractice = new SortPractice();
+        sortPractice.executeBogoSort();
+        sortPractice.executeBubbleSort();
+        sortPractice.executeCocktailSort();
+        sortPractice.executeCombSort();
+        System.out.println("-------------------------------------");
     }
 
     private static void bankerStart(Everyday3 everyday3) {
         everyday3.start("仕事ツラいンゴ.......");
+    }
+
+    private static void timer() {
+        // 処理前の時刻を取得
+        long startTime = System.currentTimeMillis();
+
+        // 時間計測をしたい処理
+        int result = 0;
+        for (int i = 0; i < 1000000; i++) {
+            result += 1;
+        }
+
+        // 処理後の時刻を取得
+        long endTime = System.currentTimeMillis();
+
+        System.out.println("開始時刻：" + startTime + " ms");
+        System.out.println("終了時刻：" + endTime + " ms");
+        System.out.println("処理時間：" + (endTime - startTime) + " ms");
     }
 }
