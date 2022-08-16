@@ -5,12 +5,17 @@ import com.company.template_method_pattern.*;
 import com.company.template_method_pattern_functional_interface.*;
 import com.company.template_method_pattern_interface.*;
 
+import java.io.*;
 import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
-        timer();
+        try {
+            Java8ToJava17Diff.java9();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void history() {
@@ -150,6 +155,9 @@ public class Main {
         sortPractice.executeCocktailSort();
         sortPractice.executeCombSort();
         System.out.println("-------------------------------------");
+
+        // timer
+        timer();
     }
 
     private static void bankerStart(Everyday3 everyday3) {
