@@ -17,7 +17,8 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        ThreadLocalStudy.start();
+//        ThreadLocalStudy.start();
+        SingletonStudy.start();
     }
 
     private static void history() {
