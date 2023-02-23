@@ -11,11 +11,13 @@ import java.util.*;
 public class Main {
 
     public static void main(String[] args) {
-        try {
-            Java8ToJava17Diff.java9();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Java8ToJava17Diff.java9();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+
+        ThreadLocalStudy.start();
     }
 
     private static void history() {
